@@ -68,6 +68,15 @@ class GetData:
         col = int(data_config.get_result())
         self.opera_excel.write_value(row, col, value)
 
+    #获取依赖数据的key
+    def get_depend_key(self, row):
+        col = int(data_config.get_data_depend())
+        depend_key = self.opera_excel.get_cell_value(row, col)
+        if depend_key == '':
+            return None
+        else:
+            return depend_key
+
 if __name__ == '__main__':
     gd = GetData()
     print(gd.get_case_lines())
